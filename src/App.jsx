@@ -1,5 +1,8 @@
 import React from 'react';
+import './styles';
 
-export default App = () => (
-    <div>Hello there</div>
+const App = () => (
+    <div className="hello-message">Hello there</div>
 )
+
+export default App;
