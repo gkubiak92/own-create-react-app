@@ -1,0 +1,19 @@
+{
+  "name": "own-create-react-app",
+  "version": "1.0.0",
+  "description": "Webpack learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gkubiak92/own-create-react-app.git"
+  },
+  "author": "Grzegorz Kubiak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gkubiak92/own-create-react-app/issues"
+  },
+  "homepage": "https://github.com/gkubiak92/own-create-react-app#readme"
+}
