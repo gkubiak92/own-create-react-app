@@ -1,6 +1,7 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -10,16 +11,20 @@ module.exports = {
         filename: 'script.[hash].js',
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.scss', 'sass'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', 'sass'],
     },
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    presets: [
+                        '@babel/preset-env',
+                        '@babel/preset-react',
+                        '@babel/preset-typescript',
+                    ],
                 },
             },
             {
@@ -40,11 +45,13 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[name].css',
-        })
+        }),
+        new ForkTsCheckerWebpackPlugin(),
     ],
     devServer: {
         contentBase: path.resolve(__dirname, "dist"),
         port: 3000,
         open: true,
+        overlay: true,
     }
 }
